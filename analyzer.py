@@ -24,13 +24,7 @@ def count_word_said_by_name(word, name):
 
 
 def process_chat_rows(rows):
-    i = 0
     for row in rows:
-
-        # if i > 200:
-        #     break
-        # i += 1
-
         regex = r"^(?P<date>\d+\/\d+\/\d+\,\s\d+\:\d+)\s\-\s(?P<message>.*)"
         matches = re.search(regex, row)
         if matches:
@@ -49,7 +43,7 @@ def process_chat_rows(rows):
             append_to_diclist(date, msg, date_to_msg_dic)
             append_to_diclist(date, name, date_to_name_dic)
 
-        else:
+        else: # in case of multiline message
             message += row
 
 
